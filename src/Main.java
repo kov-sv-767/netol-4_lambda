@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class Main {
     public static void main(String[] args) {
@@ -15,8 +16,9 @@ public class Main {
         System.out.println(people);
         System.out.println();
 
-        Collections.sort(people, new PersonComparator(2));
-        System.out.println("Сортировка по возрастанию знатности:");
+        people.removeIf(Person -> Person.getAge()<18);
+
+        System.out.println("Совершеннолетние: ");
         System.out.println(people);
     }
 }
